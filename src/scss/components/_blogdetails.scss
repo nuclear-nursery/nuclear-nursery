@@ -1,0 +1,26 @@
+/*
+ * Blog Details
+ */
+
+.mi-blog-details {
+	p > img {
+		display: flex;
+	}
+	img {
+		margin-bottom: 15px;
+		max-width: 100%;
+		max-height: 600px;
+		margin: 0 auto;
+	}
+	h3 {
+		font-weight: 700;
+	}
+	blockquote {
+		margin-top: 25px;
+		margin-bottom: 25px;
+	}
+	&-comments {
+		background: $color-bg-body;
+		padding: 10px;
+	}
+}

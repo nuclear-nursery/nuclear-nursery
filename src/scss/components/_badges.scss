@@ -1,0 +1,49 @@
+$sweet: #93ff68;
+$hot: #ff3131;
+$smokey: #954535;
+$fruity: #ffb543;
+$pungent: #5e4b5b;
+$floral: #c660ff;
+$bitter: #0437f2;
+$citrus: #e4ff55;
+
+.badge {
+	font-weight: bold;
+	color: black;
+	margin-right: 10px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	&.sweet {
+		background: $sweet;
+	}
+
+	&.super-hot {
+		background: $hot;
+	}
+
+	&.smokey {
+		background: $smokey;
+	}
+
+	&.fruity {
+		background: $fruity;
+	}
+
+	&.pungent {
+		background: $pungent;
+	}
+
+	&.floral {
+		background: $floral;
+	}
+
+	&.bitter {
+		background: $bitter;
+	}
+
+	&.citrus {
+		background: $citrus;
+	}
+}
