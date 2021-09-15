@@ -39,7 +39,9 @@ function Blogs() {
 			<div className='mi-about mi-section mi-padding-top mi-padding-bottom'>
 				<div className='container'>
 					<Sectiontitle title='Recent Blogs' />
-					<BlogsView blogs={currentPosts} />
+					{currentPosts && currentPosts.length > 0 ? (
+						<BlogsView blogs={currentPosts} />
+					) : null}
 					{!(posts.length > postsPerPage) ? null : (
 						<Pagination
 							className='mt-50'

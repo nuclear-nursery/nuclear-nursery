@@ -1,8 +1,16 @@
 import { Helmet } from 'react-helmet'
 import React, { useState } from 'react'
+import axios from 'axios'
 import * as Icon from 'react-feather'
 import Sectiontitle from '../components/Sectiontitle'
 import Layout from '../components/Layout'
+
+const blankForm = {
+	name: '',
+	email: '',
+	subject: '',
+	message: '',
+}
 
 function Contact() {
 	const [phoneNumbers] = useState(['678-943-3920'])
@@ -11,12 +19,7 @@ function Contact() {
 		'support@nuclear-nursery.com',
 	])
 	const [address] = useState(['Acworth, GA'])
-	const [formdata, setFormdata] = useState({
-		name: '',
-		email: '',
-		subject: '',
-		message: '',
-	})
+	const [formdata, setFormdata] = useState(blankForm)
 	const [error, setError] = useState(false)
 	const [message, setMessage] = useState('')
 
@@ -36,7 +39,17 @@ function Contact() {
 			setMessage('Message is required')
 		} else {
 			setError(false)
-			setMessage('You message has been sent!!!')
+			axios
+				.post(`${process.env.REACT_APP_SERVER}/api/email`, formdata)
+				.then(({ data }) => {
+					if (data.status === 'Message Sent') {
+						setFormdata(blankForm)
+						setMessage('Your message has been sent!!!')
+					}
+				})
+			setTimeout(() => {
+				setMessage('')
+			}, 3000)
 		}
 	}
 	const handleChange = (event) => {

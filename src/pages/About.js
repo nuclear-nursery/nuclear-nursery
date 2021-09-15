@@ -88,7 +88,7 @@ function About() {
 					<div className='row justify-content-center'>
 						<div className='col-12'>
 							<Slider className='mi-testimonial-slider' {...sliderSettings}>
-								{reviews && reviews.length
+								{reviews && reviews.length > 0
 									? reviews.map((review) => (
 											<Testimonial key={review.id} content={review} />
 									  ))

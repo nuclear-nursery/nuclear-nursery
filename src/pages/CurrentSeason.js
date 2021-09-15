@@ -29,26 +29,28 @@ function CurrentSeason() {
 					<Sectiontitle title='Available Varieties' />
 					<div className='mi-skills'>
 						<div className='row mt-30-reverse col-lg-12'>
-							{peppers.map((pepper) => (
-								<TrackVisibility
-									once
-									className='col-lg-6 mt-30'
-									key={pepper.name}
-								>
-									<h4>
-										<Link to={`${pepper.slug}/${pepper.id}`}>
-											{pepper.name}
-										</Link>
-									</h4>
-									<Progress
-										title='Heat Index'
-										percentage={pepper.heatIndex * 10}
-										isLink
-										link={pepper.slug}
-										id={pepper.id}
-									/>
-								</TrackVisibility>
-							))}
+							{peppers
+								? peppers.map((pepper) => (
+										<TrackVisibility
+											once
+											className='col-lg-6 mt-30'
+											key={pepper.name}
+										>
+											<h4>
+												<Link to={`${pepper.slug}/${pepper.id}`}>
+													{pepper.name}
+												</Link>
+											</h4>
+											<Progress
+												title='Heat Index'
+												percentage={pepper.heatIndex * 10}
+												isLink
+												link={pepper.slug}
+												id={pepper.id}
+											/>
+										</TrackVisibility>
+								  ))
+								: null}
 						</div>
 					</div>
 				</div>

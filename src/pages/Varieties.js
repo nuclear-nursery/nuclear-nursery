@@ -44,7 +44,9 @@ function Varieties() {
 			<div className='mi-about mi-section mi-padding-top mi-padding-bottom'>
 				<div className='container'>
 					<Sectiontitle title='Pepper Collections' />
-					{<VarietiesView varieties={currentVarieties} />}
+					{currentVarieties ? (
+						<VarietiesView varieties={currentVarieties} />
+					) : null}
 					{!(varieties.length > varietiesPerPage) ? null : (
 						<Pagination
 							className='mt-50'
