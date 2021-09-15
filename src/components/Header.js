@@ -1,21 +1,13 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import LineIcon from 'react-lineicons'
 import { Link, NavLink } from 'react-router-dom'
 
 function Header() {
-	const [information, setInformation] = useState('')
 	const [navigationToggler, setNavigationToggler] = useState(false)
 
 	const handleNavigationToggler = () => {
 		setNavigationToggler(!navigationToggler)
 	}
-
-	useEffect(() => {
-		axios.get('/api/information').then((response) => {
-			setInformation(response.data)
-		})
-	}, [])
 
 	return (
 		<nav className={navigationToggler ? 'mi-header is-visible' : 'mi-header'}>
@@ -28,9 +20,7 @@ function Header() {
 			</button>
 			<div className='mi-header-inner'>
 				<div className='mi-header-image'>
-					<Link to='/'>
-						<img src={information.brandImage} alt='brandimage' />
-					</Link>
+					<Link to='/'></Link>
 				</div>
 
 				<ul className='mi-header-menu'>

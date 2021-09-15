@@ -1,16 +1,19 @@
 import { Helmet } from 'react-helmet'
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import Slider from 'react-slick'
 import Layout from '../components/Layout'
 import Sectiontitle from '../components/Sectiontitle'
 import Service from '../components/Service'
 import Testimonial from '../components/Testimonial'
 import AboutProfile from '../components/AboutProfile'
+import staff from '../data/staff'
+import products from '../data/services'
 
 function About() {
-	const [people, setPeople] = useState([])
-	const [services, setServices] = useState([])
+	const [people] = useState(staff)
+	const [services] = useState(products)
 	const [reviews, setReviews] = useState([])
 
 	const sliderSettings = {
@@ -36,12 +39,6 @@ function About() {
 	}
 
 	useEffect(() => {
-		axios.get('/api/people').then((response) => {
-			setPeople(response.data)
-		})
-		axios.get('/api/services').then((response) => {
-			setServices(response.data)
-		})
 		axios.get('/api/reviews').then((response) => {
 			setReviews(response.data)
 		})
@@ -91,10 +88,16 @@ function About() {
 					<div className='row justify-content-center'>
 						<div className='col-12'>
 							<Slider className='mi-testimonial-slider' {...sliderSettings}>
-								{reviews.map((review) => (
-									<Testimonial key={review.id} content={review} />
-								))}
+								{reviews && reviews.length
+									? reviews.map((review) => (
+											<Testimonial key={review.id} content={review} />
+									  ))
+									: null}
 							</Slider>
+							<p>
+								If you wish to leave a review, please contact us{' '}
+								<Link to='/contact'>here</Link>
+							</p>
 						</div>
 					</div>
 				</div>

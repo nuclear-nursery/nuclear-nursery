@@ -1,12 +1,11 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet'
 import Particles from 'react-particles-js'
 import Layout from '../components/Layout'
 import Socialicons from '../components/Socialicons'
 
 function Home({ lightMode }) {
-	const [information, setInformation] = useState('')
 	const paramConfig = {
 		particles: {
 			number: {
@@ -16,7 +15,7 @@ function Home({ lightMode }) {
 				},
 			},
 			color: {
-				value: '#000000',
+				value: '#CC1D22',
 			},
 			opacity: {
 				value: 0.1,
@@ -50,7 +49,7 @@ function Home({ lightMode }) {
 				},
 			},
 			color: {
-				value: '#ffffff',
+				value: '#FE7400',
 			},
 			opacity: {
 				value: 0.1,
@@ -75,11 +74,7 @@ function Home({ lightMode }) {
 			},
 		},
 	}
-	useEffect(() => {
-		axios.get('/api/information').then((response) => {
-			setInformation(response.data)
-		})
-	}, [])
+
 	return (
 		<Layout>
 			<Helmet>
@@ -96,15 +91,13 @@ function Home({ lightMode }) {
 					<div className='row justify-content-center'>
 						<div className='col-lg-10 col-12'>
 							<div className='mi-home-content'>
-								<img
-									src={
-										lightMode
-											? 'images/logo/default-monochrome-black.svg'
-											: 'images/logo/default-monochrome.svg'
-									}
-									alt='logo'
-								/>
-								<p>{information.aboutContent}</p>
+								<img src='images/logo/logo.svg' alt='logo' />
+								<p>
+									Georgia Grown Hot Pepper Varieties that cannot be found at
+									other local nurseries. Check out our{' '}
+									<Link to='/current-season'>Current Season</Link> varieties
+									that may be available.
+								</p>
 								<Socialicons bordered />
 							</div>
 						</div>
