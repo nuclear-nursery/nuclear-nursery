@@ -47,7 +47,7 @@ function Variety({ content }) {
 			)}
 			{scientificName ? <h6>{scientificName}</h6> : null}
 			{!largeImageUrl ? null : (
-				<FsLightbox toggler={toggler} sources={largeImageUrl} />
+				<FsLightbox toggler={toggler} sources={largeImageUrl.split(',')} />
 			)}
 		</div>
 	)

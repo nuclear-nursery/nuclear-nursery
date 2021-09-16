@@ -3,6 +3,11 @@
  */
 
 .mi-about {
+	&-area {
+		margin: 0 auto;
+		justify-content: center;
+		align-items: center;
+	}
 	&-image {
 		position: relative;
 
@@ -87,10 +92,6 @@
 
 					&:after {
 						content: ':';
-						position: absolute;
-						top: 0;
-						left: auto;
-						right: 0;
 					}
 				}
 			}

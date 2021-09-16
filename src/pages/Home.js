@@ -21,7 +21,7 @@ function Home({ lightMode }) {
 				value: 0.1,
 			},
 			size: {
-				value: 30,
+				value: 10,
 				random: true,
 				anim: {
 					speed: 4,
@@ -55,7 +55,7 @@ function Home({ lightMode }) {
 				value: 0.1,
 			},
 			size: {
-				value: 30,
+				value: 10,
 				random: true,
 				anim: {
 					speed: 4,

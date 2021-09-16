@@ -30,7 +30,7 @@ const VarietyProfile = ({ variety, reverse = false }) => {
 					reverse ? 'flex-row-reverse' : 'flex-row'
 				}`}
 			>
-				<div className='col-lg-6'>
+				<div className='col-lg-5'>
 					<div className='mi-about-image'>
 						<ProgressiveImage
 							src={imageUrl}
@@ -55,36 +55,39 @@ const VarietyProfile = ({ variety, reverse = false }) => {
 						) : null}
 					</div>
 				</div>
-				<div className='col-lg-6'>
+				<div className='col-lg-7'>
 					<div className='mi-about-content'>
 						<h3>{name}</h3>
 						<p>{facts}</p>
 						<ul>
 							{!name ? null : (
-								<li>
+								<li className='flex-wrap flex-sm-nowrap'>
 									<b>Species</b> {scientificName}
 								</li>
 							)}
 							{!lineage ? null : (
-								<li>
+								<li className='flex-wrap flex-sm-nowrap'>
 									<b>Lineage</b> {lineage}
 								</li>
 							)}
 							{!flavorProfile ? null : (
-								<li>
+								<li className='d-inline-flex flex-column d-md-flex flex-sm-row flex-wrap flex-sm-nowrap'>
 									<b>Flavor</b>{' '}
-									{flavorProfile.split(',').map((flavor) => (
+									{flavorProfile.split(',').map((flavor, index) => (
 										<FlavorBadge key={flavor} flavor={flavor.toLowerCase()} />
 									))}
 								</li>
 							)}
 							{!daysToHarvest ? null : (
-								<li>
+								<li className='flex-wrap flex-sm-nowrap'>
 									<b>Harvest</b> {daysToHarvest}+ days
 								</li>
 							)}
 							{!heatIndex ? null : (
-								<li style={{ display: 'flex', alignItems: 'center' }}>
+								<li
+									className='flex-wrap flex-sm-nowrap'
+									style={{ display: 'flex', alignItems: 'center' }}
+								>
 									<b>Heat Index</b>{' '}
 									<TrackVisibility once className='col-lg-6' key={name}>
 										<Progress percentage={heatIndex * 10} />
@@ -92,8 +95,8 @@ const VarietyProfile = ({ variety, reverse = false }) => {
 								</li>
 							)}
 							{!scovilleHeatUnits ? null : (
-								<li>
-									<b>Scoville Heat Units (SHU):</b> {scovilleHeatUnits}
+								<li className='flex-wrap flex-sm-nowrap'>
+									<b>Scoville Heat Units (SHU)</b> {scovilleHeatUnits}
 								</li>
 							)}
 						</ul>
