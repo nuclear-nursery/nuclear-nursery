@@ -9,7 +9,7 @@ import VarietiesView from '../components/VarietiesView'
 function Varieties() {
 	const [varieties, setVarieties] = useState([])
 	const [currentPage, setCurrentPage] = useState(1)
-	const [varietiesPerPage] = useState(9)
+	const [varietiesPerPage] = useState(15)
 
 	useEffect(() => {
 		let mounted = true

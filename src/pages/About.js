@@ -61,7 +61,8 @@ function About() {
 					<AboutProfile
 						key={person.name}
 						person={person}
-						reverse={!!index % 2 !== 0}
+						reverse={index % 2 !== 0}
+						last={index === people.length - 1}
 					/>
 				)
 			})}

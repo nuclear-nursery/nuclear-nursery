@@ -93,10 +93,10 @@ function Home({ lightMode }) {
 							<div className='mi-home-content'>
 								<img src='images/logo/logo.svg' alt='logo' />
 								<p>
-									Georgia Grown Hot Pepper Varieties that cannot be found at
-									other local nurseries. Check out our{' '}
-									<Link to='/current-season'>Current Season</Link> varieties
-									that may be available.
+									Family Owned, Georgia Grown, Hot Pepper Nursery. Rare Pepper
+									Varieties Sold Here. Check out our{' '}
+									<Link to='/current-season'>Current Season</Link> varieties for
+									availability.
 								</p>
 								<Socialicons bordered />
 							</div>

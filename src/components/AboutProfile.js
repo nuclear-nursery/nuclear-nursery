@@ -3,7 +3,7 @@ import FsLightbox from 'fslightbox-react'
 import * as Icon from 'react-feather'
 import ProgressiveImage from 'react-progressive-image'
 
-const AboutProfile = ({ person, reverse = false }) => {
+const AboutProfile = ({ person, reverse = false, last = false }) => {
 	const [toggler, setToggler] = useState(false)
 
 	const handleToggler = (event) => {
@@ -38,16 +38,22 @@ const AboutProfile = ({ person, reverse = false }) => {
 					<FsLightbox toggler={toggler} sources={[person.aboutImageLg]} />
 				</div>
 			</div>
-			<div className='col-lg-6'>
+			<div className='col-lg-4'>
 				<div className='mi-about-content'>
 					<h3>
-						I am <span className='color-theme'>{person.name}</span>
+						<span className='color-theme'>{person.name}</span>
 					</h3>
-					<p>{person.aboutContent}</p>
 					<ul>
-						{!person.name ? null : (
+						{!person.name
+							? null
+							: !last && (
+									<li>
+										<b>Full Name</b> {person.name}
+									</li>
+							  )}
+						{!person.title ? null : (
 							<li>
-								<b>Full Name</b> {person.name}
+								<b>Title</b> {person.title}
 							</li>
 						)}
 						{!person.age ? null : (
