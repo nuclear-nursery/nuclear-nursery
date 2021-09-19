@@ -15,11 +15,15 @@ function Blogs() {
 		let mounted = true
 		axios.get(`${process.env.REACT_APP_SERVER}/api/blog`).then((response) => {
 			if (mounted) {
-				setPosts(response.data)
+				const blogs = []
+				response.data.map((blog) => {
+					return blog.is_viewable ? blogs.push(blog) : null
+				})
+				setPosts(blogs)
 			}
 		})
 		return () => (mounted = false)
-	}, [posts])
+	}, [])
 
 	const indexOfLastPost = currentPage * postsPerPage
 	const indexOfFirstPost = indexOfLastPost - postsPerPage

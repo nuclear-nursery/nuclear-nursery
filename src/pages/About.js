@@ -103,6 +103,12 @@ function About() {
 					</div>
 				</div>
 			</div>
+			<a
+				href='https://www.vecteezy.com/free-vector/soon'
+				style={{ display: 'none' }}
+			>
+				Soon Vectors by Vecteezy
+			</a>
 		</Layout>
 	)
 }
