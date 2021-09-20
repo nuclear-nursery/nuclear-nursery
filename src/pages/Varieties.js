@@ -6,12 +6,19 @@ import Layout from '../components/Layout'
 import Pagination from '../components/Pagination'
 import VarietiesView from '../components/VarietiesView'
 
+const VARIETY_PAGE_NUMBER = 'VARIETY_PAGE_NUMBER'
+
 function Varieties() {
 	const [varieties, setVarieties] = useState([])
 	const [currentPage, setCurrentPage] = useState(1)
 	const [varietiesPerPage] = useState(15)
-
+	let session = {}
+	if (window !== 'undefined') {
+		session = window.sessionStorage
+	}
 	useEffect(() => {
+		if (session && session.getItem(VARIETY_PAGE_NUMBER))
+			setCurrentPage(Number(session.getItem(VARIETY_PAGE_NUMBER)))
 		let mounted = true
 		axios
 			.get(`${process.env.REACT_APP_SERVER}/api/peppers`)
@@ -21,7 +28,7 @@ function Varieties() {
 				}
 			})
 		return () => (mounted = false)
-	}, [])
+	}, [session])
 
 	const indexOfLastVarieties = currentPage * varietiesPerPage
 	const indexOfFirstVarieties = indexOfLastVarieties - varietiesPerPage
@@ -35,6 +42,8 @@ function Varieties() {
 		document.body.scrollTop = 0 // For Safari
 		document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
 		setCurrentPage(pageNumber)
+
+		if (session) session.setItem(VARIETY_PAGE_NUMBER, pageNumber)
 	}
 
 	return (

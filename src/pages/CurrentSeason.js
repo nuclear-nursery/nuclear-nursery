@@ -7,9 +7,19 @@ import Sectiontitle from '../components/Sectiontitle'
 import Layout from '../components/Layout'
 import Progress from '../components/Progress'
 
+function compare(a, b) {
+	if (a.heatIndex < b.heatIndex) {
+		return -1
+	}
+	if (a.heatIndex > b.heatIndex) {
+		return 1
+	}
+	return 0
+}
+
 function CurrentSeason() {
 	const [peppers, setPeppers] = useState([])
-
+	peppers.sort(compare)
 	useEffect(() => {
 		axios
 			.get(`${process.env.REACT_APP_SERVER}/api/peppers/current`)
