@@ -10,6 +10,10 @@
 	transition: $transition;
 	height: 100%;
 
+	&-area {
+		margin-bottom: 100px;
+	}
+
 	&-icon {
 		margin-bottom: 20px;
 		display: inline-block;
