@@ -58,7 +58,15 @@ const VarietyProfile = ({ variety, reverse = false }) => {
 				<div className='col-lg-7'>
 					<div className='mi-about-content'>
 						<h3>{name}</h3>
-						<p>{facts}</p>
+						<p>
+							{facts
+								.split('.,')
+								.join('. ')
+								.split('?,')
+								.join('?,')
+								.split('!,')
+								.join(' ')}
+						</p>
 						<ul>
 							{!name ? null : (
 								<li className='flex-wrap flex-sm-nowrap'>
