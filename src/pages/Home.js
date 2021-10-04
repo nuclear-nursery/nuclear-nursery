@@ -7,6 +7,7 @@ import Socialicons from '../components/Socialicons'
 import Service from '../components/Service'
 import Sectiontitle from '../components/Sectiontitle'
 import products from '../data/services'
+import NewsLetter from '../components/NewsLetter'
 
 function Home({ lightMode }) {
 	const [services] = useState(products)
@@ -121,6 +122,18 @@ function Home({ lightMode }) {
 									<Service content={service} />
 								</div>
 							))}
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className='mi-service-area mi-section mi-padding-top'>
+				<div className='container'>
+					<Sectiontitle title='News Letter' />
+					<div className='mi-service-wrapper'>
+						<div className='row mt-30-reverse'>
+							<div className='col-lg-4' />
+							<NewsLetter />
+							<div className='col-lg-4' />
 						</div>
 					</div>
 				</div>

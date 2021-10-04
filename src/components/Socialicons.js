@@ -18,6 +18,7 @@ function Socialicons(props) {
 					? 'mi-socialicons mi-socialicons-bordered'
 					: 'mi-socialicons'
 			}
+			style={props.style}
 		>
 			{!socialLinks.facebook ? null : (
 				<li>

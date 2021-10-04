@@ -4,6 +4,7 @@ import axios from 'axios'
 import * as Icon from 'react-feather'
 import Sectiontitle from '../components/Sectiontitle'
 import Layout from '../components/Layout'
+import NewsLetter from '../components/NewsLetter'
 
 const blankForm = {
 	name: '',
@@ -193,6 +194,18 @@ function Contact() {
 									</div>
 								)}
 							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className='mi-service-area mi-section'>
+				<div className='container'>
+					<Sectiontitle title='News Letter' />
+					<div className='mi-service-wrapper'>
+						<div className='row mt-30-reverse'>
+							<div className='col-lg-4' />
+							<NewsLetter className='mi-padding-top' />
+							<div className='col-lg-4' />
 						</div>
 					</div>
 				</div>
